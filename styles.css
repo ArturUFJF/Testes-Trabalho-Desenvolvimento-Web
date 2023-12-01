@@ -40,7 +40,7 @@ align-content: center;
 }
 
 /* Tirando as bordas para virar uma coluna */
-/*.cell:nth-child(1),
+.cell:nth-child(1),
 .cell:nth-child(2),
 .cell:nth-child(3),
 .cell:nth-child(4),
@@ -55,7 +55,7 @@ align-content: center;
 .cell:nth-child(8),
 .cell:nth-child(9){
     border-top: none;
-}*/
+}
 
 /*Dado 1*/
 .board.d1 .cell:not(.d1):not(.d2):not(.d3):not(.d4):not(.d5):not(.d6):hover{
