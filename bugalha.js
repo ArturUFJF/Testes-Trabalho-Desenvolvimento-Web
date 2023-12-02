@@ -1,6 +1,8 @@
 const celulas = document.querySelectorAll("[data-cell]");
 const tabuleiro = document.querySelector("[data-board]");
+const dadoCanto = document.querySelector("[data-dado-atual");
 
+console.log(dadoCanto);
 
 function intervaloNumRandom(a, b)
 {
@@ -26,15 +28,15 @@ getProx(); //Primeiro valor aleatório
 
 vezJogador=false;
 
+dadoCanto.innerHTML = prox;
+
 tabuleiro.classList.add(dados[prox-1]);
 
 for (const cell of celulas){
     cell.addEventListener('click', clicarColuna, {once: true});
-    
 }
 }
 
-//Função que adiciona a classe do dado a uma célula
 function addDado(cel1,dadoRandom){
     cel1.classList.add(dados[dadoRandom-1]);
 }
@@ -54,14 +56,12 @@ const clicarColuna = (x) => {
     // Botar o dado
     const cell = x.target;
     let dadoSerAdicionado = prox;
-    
     addDado(cell,dadoSerAdicionado);
     
     getProx();
+    dadoCanto.innerHTML = prox;
     // Mudar vez
     mudaVez(dadoSerAdicionado);
-
-    // Verificar tabela cheia
 }
 
 //Começa o jogo
