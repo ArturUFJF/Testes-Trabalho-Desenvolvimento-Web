@@ -140,3 +140,48 @@ align-content: center;
     font-size: 5rem;
     color: white;
 }
+
+.mesa-dado{
+display: grid;
+background-color: white;
+width: 20%;
+height: 20%;
+display: grid;
+justify-content: center;
+align-content: center;
+justify-items: center;
+align-items: center;
+}
+
+.cel{
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    }
+
+    /* Mesa onde o dado aparece */
+    .cel.d1{
+        content: url(assets/dados/dado_1.png);
+    }
+    .cel.d2{
+        content: url(assets/dados/dado_2.png);
+    }
+    .cel.d3{
+        content: url(assets/dados/dado_3.png);
+    }
+    .cel.d4{
+        content: url(assets/dados/dado_4.png);
+    }
+    .cel.d5{
+        content: url(assets/dados/dado_5.png);
+    }
+    .cel.d6{
+        content: url(assets/dados/dado_6.png);
+    }
+
+    .dado-lateral{
+        display: none;
+    }
