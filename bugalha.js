@@ -1,6 +1,6 @@
 const celulas = document.querySelectorAll("[data-cell]");
 const tabuleiro = document.querySelector("[data-board]");
-const dadoCanto = document.querySelector("[data-dado-atual");
+const dadoCanto = document.querySelector("[data-cel");
 
 console.log(dadoCanto);
 
@@ -26,9 +26,9 @@ const getProx = () => {
 const startGame = () => {
 getProx(); //Primeiro valor aleatório 
 
-vezJogador=false;
+dadoCanto.innerHTML = dadoCanto.classList.add(dados[prox-1]);
 
-dadoCanto.innerHTML = prox;
+vezJogador=false;
 
 tabuleiro.classList.add(dados[prox-1]);
 
@@ -58,8 +58,9 @@ const clicarColuna = (x) => {
     let dadoSerAdicionado = prox;
     addDado(cell,dadoSerAdicionado);
     
+    dadoCanto.innerHTML = dadoCanto.classList.remove(dados[prox-1]);
     getProx();
-    dadoCanto.innerHTML = prox;
+    dadoCanto.innerHTML = dadoCanto.classList.add(dados[prox-1]); 
     // Mudar vez
     mudaVez(dadoSerAdicionado);
 }
