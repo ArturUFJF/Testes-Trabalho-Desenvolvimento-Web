@@ -19,6 +19,18 @@ let vezJogador;
 
 let prox;
 
+const boardCheio = [
+    [0,1,2,3,4,5,6,7,8]
+];
+
+const endGame = (c1,c2,c3,c4,c5,c6) => {
+    return boardCheio.some((combination) => {
+        return combination.every((index)=>{
+            return (celulas[index].classList.contains(c1) || celulas[index].classList.contains(c2) || celulas[index].classList.contains(c3) || celulas[index].classList.contains(c4) || celulas[index].classList.contains(c5) || celulas[index].classList.contains(c6))
+        });
+    });
+};
+
 const getProx = () => {
     prox = intervaloNumRandom(valorMin,valorMax);
 }
@@ -61,8 +73,13 @@ const clicarColuna = (x) => {
     dadoCanto.innerHTML = dadoCanto.classList.remove(dados[prox-1]);
     getProx();
     dadoCanto.innerHTML = dadoCanto.classList.add(dados[prox-1]); 
+    
     // Mudar vez
     mudaVez(dadoSerAdicionado);
+
+    // Fim de Jogo
+    const acabou = endGame("d1","d2","d3","d4","d5","d6");
+    console.log(acabou);
 }
 
 //Começa o jogo
