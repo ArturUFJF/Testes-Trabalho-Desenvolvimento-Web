@@ -64,6 +64,8 @@ function mudaVez(d){
 
 }
 
+let coluna = [0,0,0];
+
 const clicarColuna = (x) => {
     // Botar o dado
     const cell = x.target;
@@ -71,9 +73,25 @@ const clicarColuna = (x) => {
     addDado(cell,dadoSerAdicionado);
     
     dadoCanto.innerHTML = dadoCanto.classList.remove(dados[prox-1]);
+   
+    //Verifica presença de dado e soma dado no valor da coluna
+    if(x.target === celulas[0] || x.target === celulas[3] || x.target === celulas[6]){
+      coluna[0] += prox;  
+    }
+    if(x.target === celulas[1] || x.target === celulas[4] || x.target === celulas[7]){
+        coluna[1] += prox;  
+      }
+      if(x.target === celulas[2] || x.target === celulas[5] || x.target === celulas[8]){
+        coluna[2] += prox;  
+      }
+    console.log("Coluna 1:", coluna[0]);
+    console.log("Coluna 2:", coluna[1]);
+    console.log("Coluna 3:", coluna[2]);
+
     getProx();
     dadoCanto.innerHTML = dadoCanto.classList.add(dados[prox-1]); 
     
+
     // Mudar vez
     mudaVez(dadoSerAdicionado);
 
@@ -83,6 +101,7 @@ const clicarColuna = (x) => {
         console.log('acabou rs')
     }
 }
+
 
 //Começa o jogo
 startGame();
