@@ -43,8 +43,8 @@ dadoCanto.innerHTML = dadoCanto.classList.add(dados[prox-1]);
 
 tabuleiro.classList.add(dados[prox-1]);
 
-for (const cell of celulas){
-    cell.addEventListener('click', clicarColuna, {once: true});
+for (var i=0; i<9; i++){
+    celulas[i].addEventListener('click', clicarColuna, {once: true});
 }
 }
 
@@ -114,10 +114,16 @@ function botJoga(){
     //Soma dos valores do bot!
     valorBot();
     //Começo da ideia de como deletar dados
+    deletaDado(celulas,randomCell);
+}
+
+function deletaDado(x,y){
+    //Começo da ideia de como deletar dados
     for (const i of dados){
-        celulas[randomDado].classList.remove(i);    
+        x[y].classList.remove(i);    
     }
-    celulas[randomDado].addEventListener('click', clicarColuna, {once: true});
+    //Readiciona o evento de botar um dado na célula em que o dado inimigo foi deletado
+    x[y].addEventListener('click', clicarColuna, {once: true});
 }
 
 
@@ -195,6 +201,12 @@ const clicarColuna = (x) => {
     let dadoSerAdicionado = prox;
     addDado(cell,dadoSerAdicionado);
     
+    //Começo da ideia de como deletar dados
+    //deletaDado(celulas2,indexApagar);
+
+    //OBS: descobrir como saber o index da célula clicada
+    
+
     dadoCanto.innerHTML = dadoCanto.classList.remove(dados[prox-1]);
    
     //Verifica presença de dado e soma dado no valor da coluna
@@ -202,7 +214,6 @@ const clicarColuna = (x) => {
 
     getProx();
     dadoCanto.innerHTML = dadoCanto.classList.add(dados[prox-1]); 
-    
 
     //Troca classe
     trocaClasse(dadoSerAdicionado);
