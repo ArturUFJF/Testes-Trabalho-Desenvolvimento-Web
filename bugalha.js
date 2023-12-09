@@ -40,7 +40,7 @@ getProx(); //Primeiro valor aleatório
 
 dadoCanto.innerHTML = dadoCanto.classList.add(dados[prox-1]);
 
-vezJogador=false;
+vezJogador=true;
 
 tabuleiro.classList.add(dados[prox-1]);
 
@@ -56,7 +56,10 @@ function addDado(cel1,dadoRandom){
 // Definição da função que muda a vez
 function mudaVez(d){
     vezJogador = !vezJogador;
-    
+    if(vezJogador===false){
+
+    }
+
     for (const i of dados){
         tabuleiro.classList.remove(i);
     }
@@ -113,8 +116,10 @@ const verifValor = (x) => {
             }  
     }
 
+    //Imprime valor de cada coluna
     const elementoValoresSomados = document.getElementById('valoresSomados');
     elementoValoresSomados.innerHTML = `${coluna[0]} ${coluna[1]} ${coluna[2]}`;
+    //Imprime valor total
     const elementoValorTotal = document.getElementById('valorTotal');
     elementoValorTotal.innerHTML = `${coluna[0]+coluna[1]+coluna[2]}`;
 
