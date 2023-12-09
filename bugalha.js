@@ -117,6 +117,7 @@ function botJoga(){
     for (const i of dados){
         celulas[randomDado].classList.remove(i);    
     }
+    celulas[randomDado].addEventListener('click', clicarColuna, {once: true});
 }
 
 
