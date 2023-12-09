@@ -23,6 +23,11 @@ const boardCheio = [
     [0,1,2,3,4,5,6,7,8]
 ];
 
+const indicePlayer = (j) =>{
+    console.log(j);
+
+}
+
 const endGame = (c1,c2,c3,c4,c5,c6) => {
     return boardCheio.some((combination) => {
         return combination.every((index)=>{
@@ -42,9 +47,11 @@ dadoCanto.innerHTML = dadoCanto.classList.add(dados[prox-1]);
 
 tabuleiro.classList.add(dados[prox-1]);
 
-for (var i=0; i<9; i++){
-    celulas[i].addEventListener('click', clicarColuna, {once: true});
-}
+    for(var i=0; i<9; i++){
+        celulas[i].addEventListener('click', indicePlayer(i), {once: true});
+        celulas[i].addEventListener('click', clicarColuna, {once: true});
+    }
+    
 }
 
 function addDado(cel1,dadoRandom){
@@ -272,13 +279,13 @@ const clicarColuna = (x) => {
     addDado(cell,dadoSerAdicionado);
     
     //Começo da ideia de como deletar dados
-    //deletaDado(celulas2,indexApagar);
-
+    //deletaDado(celulas2,indexApagar,valorCell2);
+    
     //OBS: descobrir como saber o index da célula clicada
     
-
+    
     dadoCanto.innerHTML = dadoCanto.classList.remove(dados[prox-1]);
-   
+    
     //Verifica presença de dado e soma dado no valor da coluna
     verifValor(x);
 
