@@ -1,6 +1,9 @@
 const celulas = document.querySelectorAll("[data-cell]");
 const tabuleiro = document.querySelector("[data-board]");
 const dadoCanto = document.querySelector("[data-cel");
+const celulas2 = document.querySelectorAll("[data-cell2]")
+const tabuleiro2 = document.querySelector("[data-board2]")
+const dadoCanto2 = document.querySelector("[data-cel2");
 
 console.log(dadoCanto);
 
@@ -12,10 +15,8 @@ function intervaloNumRandom(a, b)
 // Array de classes de dado
 let dados = ["d1", "d2", "d3", "d4", "d5", "d6"];
 
-let valorMin = 1;
-let valorMax = 6;
-
-let vezJogador;
+const valorMin = 1;
+const valorMax = 6;
 
 let prox;
 
@@ -40,8 +41,6 @@ getProx(); //Primeiro valor aleatório
 
 dadoCanto.innerHTML = dadoCanto.classList.add(dados[prox-1]);
 
-vezJogador=true;
-
 tabuleiro.classList.add(dados[prox-1]);
 
 for (const cell of celulas){
@@ -52,6 +51,74 @@ for (const cell of celulas){
 function addDado(cel1,dadoRandom){
     cel1.classList.add(dados[dadoRandom-1]);
 }
+
+let valorCell2 = [0,0,0,0,0,0,0,0,0];
+let coluna2 = [0,0,0];
+
+const valorBot = () =>{
+    //Coluna 1
+    coluna2[0] = valorCell2[0] + valorCell2[3] + valorCell2[6];
+    //Verificação de iguais
+        if(valorCell2[0] === valorCell2[3] || valorCell2[0] === valorCell2[6] || valorCell2[3] === valorCell2[6]){
+            if(valorCell2[0] === valorCell2[3]) {coluna2[0] = 2*valorCell2[0] + 2*valorCell2[3] + valorCell2[6];}
+            if(valorCell2[0] === valorCell2[6]) {coluna2[0] = 2*valorCell2[0] + 2*valorCell2[6] + valorCell2[3];}
+            if(valorCell2[3] === valorCell2[6]) {coluna2[0] = 2*valorCell2[3] + 2*valorCell2[6] + valorCell2[0];}
+        }
+        if (valorCell2[0] === valorCell2[3] && valorCell2[3] === valorCell2[6]){
+            coluna2[0] = 3*valorCell2[0] + 3*valorCell2[3] + 3*valorCell2[6];
+        }
+
+    //Coluna 2
+    coluna2[1] = valorCell2[1] + valorCell2[4] + valorCell2[7];
+    //Verificação de iguais
+    if(valorCell2[1] === valorCell2[4] || valorCell2[1] === valorCell2[7] || valorCell2[4] === valorCell2[7]){
+        if(valorCell2[1] === valorCell2[4]) {coluna2[1] = 2*valorCell2[1] + 2*valorCell2[4] + valorCell2[7];}
+            if(valorCell2[1] === valorCell2[7]) {coluna2[1] = 2*valorCell2[1] + 2*valorCell2[7] + valorCell2[4];}
+            if(valorCell2[4] === valorCell2[7]) {coluna2[1] = 2*valorCell2[4] + 2*valorCell2[7] + valorCell2[1];}
+    }  
+    if (valorCell2[1] === valorCell2[4] && valorCell2[4] === valorCell2[7]){
+        coluna2[1] = 3*valorCell2[1] + 3*valorCell2[4] + 3*valorCell2[7];
+    }
+
+    //Coluna 3
+    coluna2[2] = valorCell2[2] + valorCell2[5] + valorCell2[8]; 
+    //Verificação de iguais
+        if(valorCell2[2] === valorCell2[5] || valorCell2[2] === valorCell2[8] || valorCell2[5] === valorCell2[8]){
+            if(valorCell2[2] === valorCell2[5]) {coluna2[2] = 2*valorCell2[2] + 2*valorCell2[5] + valorCell2[8];}
+            if(valorCell2[2] === valorCell2[8]) {coluna2[2] = 2*valorCell2[2] + 2*valorCell2[8] + valorCell2[5];}
+            if(valorCell2[5] === valorCell2[8]) {coluna2[2] = 2*valorCell2[5] + 2*valorCell2[8] + valorCell2[2];}
+        }
+        if (valorCell2[2] === valorCell2[5] && valorCell2[5] === valorCell2[8]){
+            coluna2[2] = 3*valorCell2[2] + 3*valorCell2[5] + 3*valorCell2[8];
+        }  
+
+
+//Imprime valor de cada coluna
+const elementoValoresSomados2 = document.getElementById('valoresSomados2');
+elementoValoresSomados2.innerHTML = `${coluna2[0]} ${coluna2[1]} ${coluna2[2]}`;
+//Imprime valor total
+const elementoValorTotal2 = document.getElementById('valorTotal2');
+elementoValorTotal2.innerHTML = `${coluna2[0] + coluna2[1] + coluna2[2]}`;
+}
+
+function botJoga(){
+    let randomCell = intervaloNumRandom(0,8);
+    while (valorCell2[randomCell] != 0){
+        randomCell = intervaloNumRandom(0,8);
+    }
+    let randomDado = intervaloNumRandom(0,5);
+    const cell2 = celulas2[randomCell];
+    cell2.classList.add(dados[randomDado]);
+    valorCell2[randomCell] += randomDado+1;
+    
+    //Soma dos valores do bot!
+    valorBot();
+    //Começo da ideia de como deletar dados
+    for (const i of dados){
+        celulas[randomDado].classList.remove(i);    
+    }
+}
+
 
 // Definição da função que troca a classe do dado
 function trocaClasse(d){
@@ -117,10 +184,6 @@ const verifValor = (x) => {
     //Imprime valor total
     const elementoValorTotal = document.getElementById('valorTotal');
     elementoValorTotal.innerHTML = `${coluna[0]+coluna[1]+coluna[2]}`;
-
-    console.log("Coluna 1:", coluna[0]);
-    console.log("Coluna 2:", coluna[1]);
-    console.log("Coluna 3:", coluna[2]);
 }
 
 
@@ -140,8 +203,11 @@ const clicarColuna = (x) => {
     dadoCanto.innerHTML = dadoCanto.classList.add(dados[prox-1]); 
     
 
-    // Mudar vez
+    //Troca classe
     trocaClasse(dadoSerAdicionado);
+
+    //Bot joga
+    botJoga();
 
     // Fim de Jogo
     const acabou = endGame("d1","d2","d3","d4","d5","d6");
