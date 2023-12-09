@@ -63,8 +63,58 @@ function mudaVez(d){
     tabuleiro.classList.add(dados[prox-1]);
 
 }
-
+let valorCell = [0,0,0,0,0,0,0,0,0];
 let coluna = [0,0,0];
+
+const verifValor = (x) => {
+    //Adicionando valor a cada célula individual
+    for(let i=0; i<9; i++){
+        if (x.target === celulas[i]){
+            valorCell[i] += prox; 
+        }
+    }
+
+    if(x.target === celulas[0] || x.target === celulas[3] || x.target === celulas[6]){
+        coluna[0] = valorCell[0] + valorCell[3] + valorCell[6];
+        if(valorCell[0]!=0 && valorCell[3]!=0){
+            if(valorCell[0] === valorCell[3] || valorCell[0] === valorCell[6] || valorCell[3] === valorCell[6]){
+                console.log("2 iguais.");
+            }
+            if (valorCell[0] === valorCell[3] && valorCell[3] === valorCell[6]){
+                console.log("3 iguais.");
+            }
+        }
+    }
+
+    if(x.target === celulas[1] || x.target === celulas[4] || x.target === celulas[7]){
+        coluna[1] = valorCell[1] + valorCell[4] + valorCell[7];
+        if(valorCell[1]!=0 && valorCell[4]!=0){
+        if(valorCell[1] === celulas[4] || valorCell[1] === valorCell[7] || valorCell[4] === celulas[7]){
+            console.log("2 iguais.");
+        }  
+        if (valorCell[1] === valorCell[4] && valorCell[4] === valorCell[7]){
+            console.log("3 iguais.");
+        }
+    }
+}
+    if(x.target === celulas[2] || x.target === celulas[5] || x.target === celulas[8]){
+        coluna[2] = valorCell[2] + valorCell[5] + valorCell[8]; 
+        if(valorCell[2]!=0 && valorCell[5]!=0){
+
+            if(valorCell[2] === valorCell[5] || valorCell[2] === valorCell[8] || valorCell[5] === valorCell[8]){
+                console.log("2 iguais.");
+            }
+            if (valorCell[2] === valorCell[5] && valorCell[5] === valorCell[8]){
+                console.log("3 iguais.");
+            }
+        }
+    }
+    console.log("Coluna 1:", coluna[0]);
+    console.log("Coluna 2:", coluna[1]);
+    console.log("Coluna 3:", coluna[2]);
+}
+
+
 
 const clicarColuna = (x) => {
     // Botar o dado
@@ -75,18 +125,7 @@ const clicarColuna = (x) => {
     dadoCanto.innerHTML = dadoCanto.classList.remove(dados[prox-1]);
    
     //Verifica presença de dado e soma dado no valor da coluna
-    if(x.target === celulas[0] || x.target === celulas[3] || x.target === celulas[6]){
-      coluna[0] += prox;  
-    }
-    if(x.target === celulas[1] || x.target === celulas[4] || x.target === celulas[7]){
-        coluna[1] += prox;  
-      }
-      if(x.target === celulas[2] || x.target === celulas[5] || x.target === celulas[8]){
-        coluna[2] += prox;  
-      }
-    console.log("Coluna 1:", coluna[0]);
-    console.log("Coluna 2:", coluna[1]);
-    console.log("Coluna 3:", coluna[2]);
+    verifValor(x);
 
     getProx();
     dadoCanto.innerHTML = dadoCanto.classList.add(dados[prox-1]); 
@@ -98,10 +137,10 @@ const clicarColuna = (x) => {
     // Fim de Jogo
     const acabou = endGame("d1","d2","d3","d4","d5","d6");
     if (acabou === true){
-        console.log('acabou rs')
+        console.log('acabou rs');
+        
     }
 }
-
 
 //Começa o jogo
 startGame();
