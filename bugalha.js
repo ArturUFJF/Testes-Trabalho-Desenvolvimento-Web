@@ -1,15 +1,14 @@
 const celulas = document.querySelectorAll("[data-cell]");
 const tabuleiro = document.querySelector("[data-board]");
 const dadoCanto = document.querySelector("[data-cel");
-const celulas2 = document.querySelectorAll("[data-cell2]")
-const tabuleiro2 = document.querySelector("[data-board2]")
-const dadoCanto2 = document.querySelector("[data-cel2");
+const celulas2 = document.querySelectorAll("[data-cell2]");
+const tabuleiro2 = document.querySelector("[data-board2]");
 
 console.log(dadoCanto);
 
 function intervaloNumRandom(a, b)
 {
-    return Math.floor(Math.random() * (b - a + 1)) + a
+    return Math.floor(Math.random() * (b - a + 1)) + a;
 }
 
 // Array de classes de dado
