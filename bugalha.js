@@ -53,13 +53,8 @@ function addDado(cel1,dadoRandom){
     cel1.classList.add(dados[dadoRandom-1]);
 }
 
-// Definição da função que muda a vez
-function mudaVez(d){
-    vezJogador = !vezJogador;
-    if(vezJogador===false){
-
-    }
-
+// Definição da função que troca a classe do dado
+function trocaClasse(d){
     for (const i of dados){
         tabuleiro.classList.remove(i);
     }
@@ -146,7 +141,7 @@ const clicarColuna = (x) => {
     
 
     // Mudar vez
-    mudaVez(dadoSerAdicionado);
+    trocaClasse(dadoSerAdicionado);
 
     // Fim de Jogo
     const acabou = endGame("d1","d2","d3","d4","d5","d6");
