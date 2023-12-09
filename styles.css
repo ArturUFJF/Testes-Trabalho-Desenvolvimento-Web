@@ -23,6 +23,11 @@ body{
     grid-template-columns: repeat(3, auto);
 }
 
+.tabuleiro{
+    display: flex;
+    margin-top: 80px;
+}
+
 /* Célula da Grade */
 img{
     width: 100px;
