@@ -4,10 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&family=Quicksand&family=Silkscreen&display=swap" rel="stylesheet">
     <title>Bugalha - Artur Castro e Felipe Lima</title>
 </head>
+
 <body>
+
+    <!--Soma dos números das colunas-->
+
+    <div class="valores">
+        <!--Soma dos números da coluna 1-->
+        <div class="soma_coluna1">
+            <p id="valoresSomados">0 0 0</p>
+        </div>
+        <!--Soma dos números da coluna 2-->
+        <div class="soma_coluna1">
+            <p id="valoresSomados">0 0 0</p>
+        </div>
+    </div>
+    
+    <!--Tabuleiro do Jogo-->
     <div class="tabuleiro">
+        <!--Grade 1-->
         <div class="board" data-board>
             <div class="cell" data-cell></div>
             <div class="cell" data-cell></div>
@@ -21,6 +41,7 @@
             <div class="cel" data-cel></div>
         </div>
         
+        <!--Grade 2-->
         <div class="board2" data-board2>
             <div class="cell2" data-cell2></div>
             <div class="cell2" data-cell2></div>
@@ -34,20 +55,23 @@
             <div class="cel2" data-cel2></div>
         </div>
     </div>
+    
 
     <div class="dado-lateral" data-dado-lateral>
-            <img src="assets/dados/dado_1.png"/>
-            <img src="assets/dados/dado_2.png"/>
-            <img src="assets/dados/dado_3.png"/>
-            <img src="assets/dados/dado_4.png"/>
-            <img src="assets/dados/dado_5.png"/>
-            <img src="assets/dados/dado_6.png"/>
+        <img src="assets/dados/dado_1.png"/>
+        <img src="assets/dados/dado_2.png"/>
+        <img src="assets/dados/dado_3.png"/>
+        <img src="assets/dados/dado_4.png"/>
+        <img src="assets/dados/dado_5.png"/>
+        <img src="assets/dados/dado_6.png"/>
     </div>
-   <div class="mensagem-venceu" data-mensagem-venceu>
+      
+    <!--Mensagem de venceu-->
+    <div class="mensagem-venceu" data-mensagem-venceu>
        <p class="mensagem-venceu-text">Who venceu!</p>
        <button class="mensagem-venceu-button">Reiniciar!</button>
-       <script src="./bugalha.js"></script>
     </div>
-
+    
+    <script type="module" src="./bugalha.js"></script>
 </body>
 </html>

@@ -8,12 +8,13 @@ body{
     height: 100vh;
     width: 100vw;
     background: black;
+    font-family: 'Silkscreen', sans-serif;;
 }
 
 /*CSS DO TABULEIRO TODO*/
 .tabuleiro{
     display: flex;
-    margin-top: 80px;
+    margin-top: 100px;
 }
 
 /*CÉLULA DA GRADE*/
@@ -234,3 +235,16 @@ img{
     .dado-lateral{
         display: none;
     }
+
+/*Soma das Colunas*/
+.soma_coluna1{
+    color: white;
+    font-size: 20px;
+    display: flex;
+}
+
+.valores{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 30px;
+}

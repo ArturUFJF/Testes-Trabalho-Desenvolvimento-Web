@@ -69,6 +69,7 @@ let coluna = [0,0,0];
 const clicarColuna = (x) => {
     // Botar o dado
     const cell = x.target;
+    const elementoValoresSomados = document.getElementById('valoresSomados');
     let dadoSerAdicionado = prox;
     addDado(cell,dadoSerAdicionado);
     
@@ -84,6 +85,9 @@ const clicarColuna = (x) => {
       if(x.target === celulas[2] || x.target === celulas[5] || x.target === celulas[8]){
         coluna[2] += prox;  
       }
+
+    elementoValoresSomados.innerHTML = `${coluna[0]} ${coluna[1]} ${coluna[2]}`;
+
     console.log("Coluna 1:", coluna[0]);
     console.log("Coluna 2:", coluna[1]);
     console.log("Coluna 3:", coluna[2]);
