@@ -279,6 +279,9 @@ const verifValor = (x) => {
 
     const elementoValoresSomados = document.getElementById('valoresSomados');
     elementoValoresSomados.innerHTML = `${coluna[0]} ${coluna[1]} ${coluna[2]}`;
+    const elementoValorTotal = document.getElementById('valorTotal');
+    elementoValorTotal.innerHTML = `${coluna[0]+coluna[1]+coluna[2]}`;
+
     console.log("Coluna 1:", coluna[0]);
     console.log("Coluna 2:", coluna[1]);
     console.log("Coluna 3:", coluna[2]);
