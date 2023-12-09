@@ -119,12 +119,74 @@ function botJoga(){
 
 function deletaDado(x,y){
     //Começo da ideia de como deletar dados
-    for (const i of dados){
-        x[y].classList.remove(i);    
+
+    //Coluna 1
+    if  ((y===0) || (y===3) || (y===6)){
+        if  (valorCell2[y]===valorCell[0]){
+        for (const i of dados){
+        x[0].classList.remove(i);
     }
-    //Readiciona o evento de botar um dado na célula em que o dado inimigo foi deletado
-    x[y].addEventListener('click', clicarColuna, {once: true});
+        x[0].addEventListener('click', clicarColuna, {once: true});
 }
+    if  (valorCell2[y]===valorCell[3]){
+        for (const i of dados){
+        x[3].classList.remove(i);    
+    }
+        x[3].addEventListener('click', clicarColuna, {once: true});
+}
+    if  (valorCell2[y]===valorCell[6]){
+        for (const i of dados){
+            x[6].classList.remove(i);         
+        }
+            x[6].addEventListener('click', clicarColuna, {once: true});
+        }
+    }
+
+        //Coluna 2
+        if  ((y===1) || (y===4) || (y===7)){
+            if  (valorCell2[y]===valorCell[1]){
+                for (const i of dados){
+                x[1].classList.remove(i);    
+            }
+                x[1].addEventListener('click', clicarColuna, {once: true});
+        }
+            if  (valorCell2[y]===valorCell[4]){
+                for (const i of dados){
+                x[4].classList.remove(i);    
+            }
+                x[4].addEventListener('click', clicarColuna, {once: true});
+        }
+            if  (valorCell2[y]===valorCell[7]){
+                for (const i of dados){
+                x[7].classList.remove(i);    
+            }
+                x[7].addEventListener('click', clicarColuna, {once: true});
+        }
+            }
+
+        //Coluna 3
+            if  ((y===2) || (y===5) || (y===8)){
+                if  (valorCell2[y]===valorCell[2]){
+                    for (const i of dados){
+                    x[2].classList.remove(i);    
+                }
+                    x[2].addEventListener('click', clicarColuna, {once: true});
+            }
+            if  (valorCell2[y]===valorCell[5]){
+                for (const i of dados){
+                x[5].classList.remove(i);    
+            }
+                x[5].addEventListener('click', clicarColuna, {once: true});
+        }
+            if  (valorCell2[y]===valorCell[8]){
+                for (const i of dados){
+                x[8].classList.remove(i);    
+        }
+                x[8].addEventListener('click', clicarColuna, {once: true});
+    }
+                }
+    }
+
 
 
 // Definição da função que troca a classe do dado
