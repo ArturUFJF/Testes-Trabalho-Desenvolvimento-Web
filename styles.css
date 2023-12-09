@@ -210,31 +210,35 @@ img{
     display: flex;
     justify-content: center;
     align-content: center;
-    }
+}
 
-    /* Mesa onde o dado aparece */
-    .cel.d1{
-        content: url(assets/dados/dado_1.png);
-    }
-    .cel.d2{
-        content: url(assets/dados/dado_2.png);
-    }
-    .cel.d3{
-        content: url(assets/dados/dado_3.png);
-    }
-    .cel.d4{
-        content: url(assets/dados/dado_4.png);
-    }
-    .cel.d5{
-        content: url(assets/dados/dado_5.png);
-    }
-    .cel.d6{
-        content: url(assets/dados/dado_6.png);
-    }
+/* Mesa onde o dado aparece */
+.cel.d1{
+    content: url(assets/dados/dado_1.png);
+}
+.cel.d2{
+    content: url(assets/dados/dado_2.png);
+}
+.cel.d3{
+    content: url(assets/dados/dado_3.png);
+}
+.cel.d4{
+    content: url(assets/dados/dado_4.png);
+}
+.cel.d5{
+    content: url(assets/dados/dado_5.png);
+}
+.cel.d6{
+    content: url(assets/dados/dado_6.png);
+}
 
-    .dado-lateral{
-        display: none;
-    }
+.dado-lateral{
+    display: none;
+}
+
+.dado-lateral2{
+    display: none;
+}
 
 /*Soma das Colunas*/
 .soma_coluna{
