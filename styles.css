@@ -237,14 +237,20 @@ img{
     }
 
 /*Soma das Colunas*/
-.soma_coluna1{
+.soma_coluna{
     color: white;
     font-size: 20px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .valores{
     display: flex;
     justify-content: space-around;
     padding-top: 30px;
+}
+
+.val_total{
+    margin-top: 10px;
 }
