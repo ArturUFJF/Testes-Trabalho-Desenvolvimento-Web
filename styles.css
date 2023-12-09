@@ -10,7 +10,20 @@ body{
     background: black;
 }
 
-/*Tabela*/
+/*CSS DO TABULEIRO TODO*/
+.tabuleiro{
+    display: flex;
+    margin-top: 80px;
+}
+
+/*CÉLULA DA GRADE*/
+img{
+    width: 100px;
+    height: 100px;
+}
+
+
+/*TABELA DE DADOS 1*/
 .board{
     display: grid;
     width: 100%;
@@ -23,6 +36,35 @@ body{
     grid-template-columns: repeat(3, auto);
 }
 
+.cell{
+    width: 100px;
+    height: 100px;
+    background: gray;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+/* Tirando as bordas para virar uma coluna */
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3),
+.cell:nth-child(4),
+.cell:nth-child(5),
+.cell:nth-child(6){
+    border-bottom: none;
+}
+.cell:nth-child(4),
+.cell:nth-child(5),
+.cell:nth-child(6),
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9){
+    border-top: none;
+}
+
+/*TABELA DE DADOS 2*/
 .board2{
     display: grid;
     width: 100%;
@@ -63,44 +105,6 @@ body{
 }
 
 
-.tabuleiro{
-    display: flex;
-    margin-top: 80px;
-}
-
-/* Célula da Grade */
-img{
-    width: 100px;
-    height: 100px;
-}
-
-.cell{
-    width: 100px;
-    height: 100px;
-    background: gray;
-    border: 2px solid white;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
-/* Tirando as bordas para virar uma coluna */
-.cell:nth-child(1),
-.cell:nth-child(2),
-.cell:nth-child(3),
-.cell:nth-child(4),
-.cell:nth-child(5),
-.cell:nth-child(6){
-    border-bottom: none;
-}
-.cell:nth-child(4),
-.cell:nth-child(5),
-.cell:nth-child(6),
-.cell:nth-child(7),
-.cell:nth-child(8),
-.cell:nth-child(9){
-    border-top: none;
-}
 
 /*Dado 1*/
 .board.d1 .cell:not(.d1):not(.d2):not(.d3):not(.d4):not(.d5):not(.d6):hover{
@@ -187,15 +191,15 @@ img{
 }
 
 .mesa-dado{
-display: grid;
-background-color: white;
-width: 20%;
-height: 20%;
-display: grid;
-justify-content: center;
-align-content: center;
-justify-items: center;
-align-items: center;
+    display: grid;
+    background-color: white;
+    width: 20%;
+    height: 20%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
 }
 
 .cel{
