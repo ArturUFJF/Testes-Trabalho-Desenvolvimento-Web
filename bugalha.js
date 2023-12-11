@@ -120,84 +120,84 @@ function botJoga(){
     //Soma dos valores do bot!
     valorBot();
     //Começo da ideia de como deletar dados
-    deletaDado(celulas,randomCell,valorCell);
+    deletaDado(celulas,randomCell,valorCell,valorCell2);
 }
 
-function deletaDado(x,y,z){
+function deletaDado(celInimigo,indice,valInimigo,valMeu){
     //Começo da ideia de como deletar dados
 
     //Coluna 1
-    if  ((y===0) || (y===3) || (y===6)){
-        if  (valorCell2[y]===z[0]){
+    if  ((indice===0) || (indice===3) || (indice===6)){
+        if  (valMeu[indice]===valInimigo[0]){
         for (const i of dados){
-        x[0].classList.remove(i);
+        celInimigo[0].classList.remove(i);
     }
-        z[0]=0;
-        x[0].addEventListener('click', clicarColuna, {once: true});
+        valInimigo[0]=0;
+        celInimigo[0].addEventListener('click', clicarColuna, {once: true});
 }
-    if  (valorCell2[y]===z[3]){
+    if  (valMeu[indice]===valInimigo[3]){
         for (const i of dados){
-        x[3].classList.remove(i);    
+        celInimigo[3].classList.remove(i);    
     }
-        z[3]=0;
-        x[3].addEventListener('click', clicarColuna, {once: true});
+        valInimigo[3]=0;
+        celInimigo[3].addEventListener('click', clicarColuna, {once: true});
 }
-    if  (valorCell2[y]===z[6]){
+    if  (valMeu[indice]===valInimigo[6]){
         for (const i of dados){
-            x[6].classList.remove(i);         
+            celInimigo[6].classList.remove(i);         
         }
-            z[6]=0;
-            x[6].addEventListener('click', clicarColuna, {once: true});
+            valInimigo[6]=0;
+            celInimigo[6].addEventListener('click', clicarColuna, {once: true});
         }
     }
 
         //Coluna 2
-        if  ((y===1) || (y===4) || (y===7)){
-            if  (valorCell2[y]===z[1]){
+        if  ((indice===1) || (indice===4) || (indice===7)){
+            if  (valMeu[indice]===valInimigo[1]){
                 for (const i of dados){
-                x[1].classList.remove(i);    
+                celInimigo[1].classList.remove(i);    
             }
-                z[1]=0;
-                x[1].addEventListener('click', clicarColuna, {once: true});
+                valInimigo[1]=0;
+                celInimigo[1].addEventListener('click', clicarColuna, {once: true});
         }
-            if  (valorCell2[y]===z[4]){
+            if  (valMeu[indice]===valInimigo[4]){
                 for (const i of dados){
-                x[4].classList.remove(i);    
+                celInimigo[4].classList.remove(i);    
             }
-                z[4]=0;
-                x[4].addEventListener('click', clicarColuna, {once: true});
+                valInimigo[4]=0;
+                celInimigo[4].addEventListener('click', clicarColuna, {once: true});
         }
-            if  (valorCell2[y]===z[7]){
+            if  (valMeu[indice]===valInimigo[7]){
                 for (const i of dados){
-                x[7].classList.remove(i);    
+                celInimigo[7].classList.remove(i);    
             }
-                z[7]=0;
-                x[7].addEventListener('click', clicarColuna, {once: true});
+                valInimigo[7]=0;
+                celInimigo[7].addEventListener('click', clicarColuna, {once: true});
         }
             }
 
         //Coluna 3
-            if  ((y===2) || (y===5) || (y===8)){
-                if  (valorCell2[y]===z[2]){
+            if  ((indice===2) || (indice===5) || (indice===8)){
+                if  (valMeu[indice]===valInimigo[2]){
                     for (const i of dados){
-                    x[2].classList.remove(i);    
+                    celInimigo[2].classList.remove(i);    
                 }
-                z[2]=0;
-                x[2].addEventListener('click', clicarColuna, {once: true});
+                valInimigo[2]=0;
+                celInimigo[2].addEventListener('click', clicarColuna, {once: true});
             }
-            if  (valorCell2[y]===z[5]){
+            if  (valMeu[indice]===valInimigo[5]){
                 for (const i of dados){
-                x[5].classList.remove(i);    
+                celInimigo[5].classList.remove(i);    
             }
-                z[5]=0;
-                x[5].addEventListener('click', clicarColuna, {once: true});
+                valInimigo[5]=0;
+                celInimigo[5].addEventListener('click', clicarColuna, {once: true});
         }
-            if  (valorCell2[y]===z[8]){
+            if  (valMeu[indice]===valInimigo[8]){
                 for (const i of dados){
-                x[8].classList.remove(i);    
+                celInimigo[8].classList.remove(i);    
             }
-                z[8]=0;
-                x[8].addEventListener('click', clicarColuna, {once: true});
+                valInimigo[8]=0;
+                celInimigo[8].addEventListener('click', clicarColuna, {once: true});
     }
                 }
     }
