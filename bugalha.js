@@ -1,6 +1,6 @@
 const celulas = document.querySelectorAll("[data-cell]");
 const tabuleiro = document.querySelector("[data-board]");
-const dadoCanto = document.querySelector("[data-cel");
+const dadoCanto = document.querySelector("[data-cel]");
 const celulas2 = document.querySelectorAll("[data-cell2]");
 const tabuleiro2 = document.querySelector("[data-board2]");
 
