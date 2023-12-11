@@ -154,13 +154,15 @@ function deletaDado(celInimigo,indice,valInimigo,valMeu,colInimigo){
             valInimigo[6]=0;
             celInimigo[6].addEventListener('click', clicarColuna, {once: true});
         }
-    }
-    if ((valInimigo[0]===valInimigo[3]) || (valInimigo[0]===valInimigo[6]) || (valInimigo[3]===valInimigo[6])){
-        armazenaNegativo[0]*=2;
-    }
-    if ((valInimigo[0] === valInimigo[3]) && (valInimigo[3] === valInimigo[6])){
-        armazenaNegativo[0]/=2;
-        armazenaNegativo[0]*=3;
+        if((valInimigo[0]!=0 && valInimigo[3]!=0) || (valInimigo[0]!=0 && valInimigo[6]!=0) || (valInimigo[3]!=0 && valInimigo[6]!=0)){
+            if ((valInimigo[0]===valInimigo[3]) || (valInimigo[0]===valInimigo[6]) || (valInimigo[3]===valInimigo[6])){
+                armazenaNegativo[0]*=2;
+            }
+            if ((valInimigo[0] === valInimigo[3]) && (valInimigo[3] === valInimigo[6])){
+                armazenaNegativo[0]/=2;
+                armazenaNegativo[0]*=3;
+            }
+        }
     }
 
         //Coluna 2
@@ -189,7 +191,7 @@ function deletaDado(celInimigo,indice,valInimigo,valMeu,colInimigo){
                 valInimigo[7]=0;
                 celInimigo[7].addEventListener('click', clicarColuna, {once: true});
         }
-            }
+        if((valInimigo[1]!=0 && valInimigo[4]!=0) || (valInimigo[1]!=0 && valInimigo[7]!=0) || (valInimigo[4]!=0 && valInimigo[7]!=0)){
             if ((valInimigo[1]===valInimigo[4]) || (valInimigo[1]===valInimigo[7]) || (valInimigo[4]===valInimigo[7])){
                 armazenaNegativo[1]*=2;
             }
@@ -197,7 +199,8 @@ function deletaDado(celInimigo,indice,valInimigo,valMeu,colInimigo){
                 armazenaNegativo[1]/=2;
                 armazenaNegativo[1]*=3;
             }
-
+        }
+    }
 
         //Coluna 3
             if  ((indice===2) || (indice===5) || (indice===8)){
@@ -225,19 +228,22 @@ function deletaDado(celInimigo,indice,valInimigo,valMeu,colInimigo){
                 valInimigo[8]=0;
                 celInimigo[8].addEventListener('click', clicarColuna, {once: true});
     }           
-                }
-            if ((valInimigo[2]===valInimigo[5]) || (valInimigo[2]===valInimigo[8]) || (valInimigo[5]===valInimigo[8])){
-                armazenaNegativo[2]*=2;
-            }
-            if ((valInimigo[2] === valInimigo[5]) && (valInimigo[5] === valInimigo[8])){
-                armazenaNegativo[2]/=2;
-                armazenaNegativo[2]*=3;
-            }
+    if((valInimigo[2]!=0 && valInimigo[5]!=0) || (valInimigo[2]!=0 && valInimigo[8]!=0) || (valInimigo[5]!=0 && valInimigo[8]!=0)){
+        
+        if ((valInimigo[2]===valInimigo[5]) || (valInimigo[2]===valInimigo[8]) || (valInimigo[5]===valInimigo[8])){
+            armazenaNegativo[2]*=2;
+        }
+        if ((valInimigo[2] === valInimigo[5]) && (valInimigo[5] === valInimigo[8])){
+            armazenaNegativo[2]/=2;
+            armazenaNegativo[2]*=3;
+        }
+    }
+}
 
-        //Imprime valor das colunas novo    
+        //Imprime valor das colunas do inimigo  
         const elementoValoresSomados = document.getElementById('valoresSomados');
         elementoValoresSomados.innerHTML = `${coluna[0]-armazenaNegativo[0]} ${coluna[1]-armazenaNegativo[1]} ${coluna[2]-armazenaNegativo[2]}`;
-        //Imprime valor total novo
+        //Imprime valor total do inimigo
         const elementoValorTotal = document.getElementById('valorTotal');
         elementoValorTotal.innerHTML = `${coluna[0]-armazenaNegativo[0]+coluna[1]-armazenaNegativo[1]+coluna[2]-armazenaNegativo[2]}`;    
     }
@@ -300,13 +306,6 @@ const verifValor = (x) => {
                 coluna[2] = 3*valorCell[2] + 3*valorCell[5] + 3*valorCell[8];
             }  
     }
-
-    //Imprime valor de cada coluna
-    const elementoValoresSomados = document.getElementById('valoresSomados');
-    elementoValoresSomados.innerHTML = `${coluna[0]} ${coluna[1]} ${coluna[2]}`;
-    //Imprime valor total
-    const elementoValorTotal = document.getElementById('valorTotal');
-    elementoValorTotal.innerHTML = `${coluna[0]+coluna[1]+coluna[2]}`;
 }
 
 
@@ -325,7 +324,7 @@ const clicarColuna = (x) => {
     
     dadoCanto.innerHTML = dadoCanto.classList.remove(dados[prox-1]);
     
-    //Verifica presença de dado e soma dado no valor da coluna
+    //Verifica presença de dado e calcula valor de cada coluna
     verifValor(x);
 
     getProx();
